@@ -43,7 +43,9 @@ class Parking_Metropolis():
     def __init__(self):
        self.tickets = []
        self.parkingSpaces = []
-       self.currentTicket = {paid : true, paid : false}
+       self.currentTicket = {} 
+       self.ticket_number = self.tickets.pop()
+       self.parking_spaces = self.parkingSpaces.pop()
 
        # Your parking gargage class should have the following methods:
             #takeTicket
@@ -53,9 +55,11 @@ class Parking_Metropolis():
     def takeTicket(self):
        self.tickets = list(range(1,51))
        self.parkingSpaces = self.tickets 
-       self.tickets.pop()
-       paid = False
-       self.parkingSpaces.pop()
+       self.ticket_number = self.tickets.pop()
+       self.parking_spaces = self.parkingSpaces.pop()
+       self.currentTicket[self.ticket_number]["paid"] = False
+
+
 
     def payForParking(self):
          while True:
@@ -68,12 +72,44 @@ class Parking_Metropolis():
                 
             else:
                 print(" Your ticket has been paid and you have 15mins to leave")
-
+                # - This should update the "currentTicket" dictionary key "paid" to True  
+                self.currentTicket[self.ticket_number]["paid"] = True
                 break
+
+
+
+# -leaveGarage
+    def leaveGarage(self):
+       if self.ticket_number == True:
+          print("Your ticket has been paid have a nice day!  ")
+          self.parking_spaces += 1
+          self.tickets += 1
+       else:
+          print("Please post payment")
+
+
+
+
+         
+
+    
+# - If the ticket has been paid, display a message of "Thank You, have a nice day"
+# - If the ticket has not been paid, display an input prompt for payment
+# - Once paid, display message "Thank you, have a nice day!"
+# - Update parkingSpaces list to increase by 1 (meaning add to the parkingSpaces list)
+# - Update tickets list to increase by 1 (meaning add to the tickets list)
+    
+    
+       
+
+       
+
                 
-    # - This should update the "currentTicket" dictionary key "paid" to True  
-            self.currentTicket = [] = True
-    #  
+    
+            
+
+
+
 
       
 
@@ -83,11 +119,12 @@ class Parking_Metropolis():
         else:
            while True:
               if self.cards_added - self.spots_available:
+                 pass
 
  
-    def __init__(self, total_tickets, total_parking_spaces):
-        self.tickets = list(range(1, total_tickets + 1))
-        self.parkingSpaces = list(range(1, total_parking_spaces + 1))
-        self.currentTicket = {}
+    # def __init__(self, total_tickets, total_parking_spaces):
+    #     self.tickets = list(range(1, total_tickets + 1))
+    #     self.parkingSpaces = list(range(1, total_parking_spaces + 1))
+    #     self.currentTicket = {}
 
-    #add a function that tells how many parking spaces are left
+    # #add a function that tells how many parking spaces are left
