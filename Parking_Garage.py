@@ -43,7 +43,7 @@ class Parking_Metropolis():
     def __init__(self):
        self.tickets = []
        self.parkingSpaces = []
-       self.currentTicket = {paid : true, paid : false}
+       self.currentTicket = {ticket_number:{paid:true}}
 
        # Your parking gargage class should have the following methods:
             #takeTicket
