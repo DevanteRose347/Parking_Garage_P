@@ -38,7 +38,7 @@ class Parking_Metropolis():
 
      # Attributes
    
-   def __init__():
+#   def __init__(): # Delete? What is this doing?
 
     def __init__(self):
        self.tickets = []
@@ -59,72 +59,58 @@ class Parking_Metropolis():
        self.parking_spaces = self.parkingSpaces.pop()
        self.currentTicket[self.ticket_number]["paid"] = False
 
-
+# - payForParking
+   # - Display an input that waits for an amount from the user and store it in a variable
+   # - If the payment variable is not empty then (meaning the ticket has been paid) -> display a message to the user that their ticket has been paid and they have 15mins to leave
+   # - This should update the "currentTicket" dictionary key "paid" to True
 
     def payForParking(self):
          while True:
             self.price = 40
-    # - Display an input that waits for an amount from the user and store it in a variable
             self.payment = int(input(f"{self.price} dollars please"))
-    # - If the payment variable is not empty then (meaning the ticket has been paid) -> display a message to the user that their ticket has been paid and they have 15mins to leave
             if self.payment != self.price:
                 print("Your ticket has not been paid!")
-                
             else:
                 print(" Your ticket has been paid and you have 15mins to leave")
-                # - This should update the "currentTicket" dictionary key "paid" to True  
                 self.currentTicket[self.ticket_number]["paid"] = True
                 break
 
 
 
 # -leaveGarage
+   # - If the ticket has been paid, display a message of "Thank You, have a nice day"
+   # - If the ticket has not been paid, display an input prompt for payment
+   # - Once paid, display message "Thank you, have a nice day!"
+   # - Update parkingSpaces list to increase by 1 (meaning add to the parkingSpaces list)
+   # - Update tickets list to increase by 1 (meaning add to the tickets list)
+
     def leaveGarage(self):
        if self.ticket_number == True:
-          print("Your ticket has been paid have a nice day!  ")
+          print("Your ticket has been paid. Have a nice day!  ")
           self.parking_spaces += 1
           self.tickets += 1
        else:
-          print("Please post payment")
+          print("Please post payment.")
 
 
 
+   #=============Calling class ================
 
-         
-
-    
-# - If the ticket has been paid, display a message of "Thank You, have a nice day"
-# - If the ticket has not been paid, display an input prompt for payment
-# - Once paid, display message "Thank you, have a nice day!"
-# - Update parkingSpaces list to increase by 1 (meaning add to the parkingSpaces list)
-# - Update tickets list to increase by 1 (meaning add to the tickets list)
-    
-    
-       
-
-       
-
-                
-    
-            
-
-
-
-
-      
-
-    def parking_space(self):
-        if self.cars_available <= 0:
-            print("The Parking Metropolis is currently at maximum capacity.")
-        else:
-           while True:
-              if self.cards_added - self.spots_available:
-                 pass
-
+def run():
+   my_parking_spot = Parking_Metropolis() 
  
-    # def __init__(self, total_tickets, total_parking_spaces):
-    #     self.tickets = list(range(1, total_tickets + 1))
-    #     self.parkingSpaces = list(range(1, total_parking_spaces + 1))
-    #     self.currentTicket = {}
+   while True:
+      response = input("What would you like to do?: Take ticket, Pay, Leave, Exit").upper().strip()
+      if response == 'TAKE TICKET':
+         my_parking_spot.takeTicket()
+      elif response == 'PAY':
+         my_parking_spot.payForParking()
+      elif response == 'LEAVE':
+         my_parking_spot.leaveGarage()
+      elif response == 'EXIT':
+         print("Thank you. Please come again.")
+         break
+      else:
+         print("Error. Not a valid response.")
 
-    # #add a function that tells how many parking spaces are left
+run()
