@@ -44,8 +44,6 @@ class Parking_Metropolis():
        self.tickets = []
        self.parkingSpaces = []
        self.currentTicket = {} 
-       self.ticket_number = self.tickets.pop()
-       self.parking_spaces = self.parkingSpaces.pop()
 
        # Your parking gargage class should have the following methods:
             #takeTicket
@@ -67,11 +65,11 @@ class Parking_Metropolis():
     def payForParking(self):
          while True:
             self.price = 40
-            self.payment = int(input(f"{self.price} dollars please"))
+            self.payment = int(input(f"{self.price} dollars please: "))
             if self.payment != self.price:
                 print("Your ticket has not been paid!")
             else:
-                print(" Your ticket has been paid and you have 15mins to leave")
+                print("Your ticket has been paid and you have 15mins to leave")
                 self.currentTicket[self.ticket_number]["paid"] = True
                 break
 
@@ -86,11 +84,11 @@ class Parking_Metropolis():
 
     def leaveGarage(self):
        if self.ticket_number == True:
-          print("Your ticket has been paid. Have a nice day!  ")
+          print("Your ticket has been paid. Have a nice day!")
           self.parking_spaces += 1
           self.tickets += 1
        else:
-          print("Please post payment.")
+          print("Please post payment!")
 
 
 
@@ -100,7 +98,7 @@ def run():
    my_parking_spot = Parking_Metropolis() 
  
    while True:
-      response = input("What would you like to do?: Take ticket, Pay, Leave, Exit").upper().strip()
+      response = input("What would you like to do?: Take ticket, Pay, Leave, Exit: ").upper().strip()
       if response == 'TAKE TICKET':
          my_parking_spot.takeTicket()
       elif response == 'PAY':
@@ -108,7 +106,7 @@ def run():
       elif response == 'LEAVE':
          my_parking_spot.leaveGarage()
       elif response == 'EXIT':
-         print("Thank you. Please come again.")
+         print("Thank you! Please come again.")
          break
       else:
          print("Error. Not a valid response.")
