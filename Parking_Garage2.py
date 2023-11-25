@@ -19,12 +19,12 @@ class Parking_Metropolis():
          print("It's a busy day! No parking spaces available.")
    def payForParking(self):
       self.price = 40
-      ticket_number = int(input(f"What is your ticket number? "))
+      ticket_number = int(input("What is your ticket number? "))
       print(f" You owe {self.price} dollars.")
       if self.currentTicket[ticket_number]["paid"] == True:
          print("This ticket has already been paid.")
       else:
-         amount_paid = int(input(f"Enter your payment amout here: "))
+         amount_paid = int(input("Enter your payment amout here: "))
          if amount_paid == self.price:
             self.currentTicket[ticket_number]["paid"] = True
             print("Your ticket has been paid in full. Exit the premises in an orderly manner.")
@@ -34,7 +34,7 @@ class Parking_Metropolis():
             print(f"You still owe {self.price} dollars. Must pay in full before leaving.")
             return self.price
    def leaveGarage(self):
-      ticket_number = int(input(f"What is your ticket number? "))
+      ticket_number = int(input("What is your ticket number? "))
       if self.currentTicket[ticket_number]["paid"] == False:
          print("There is no free parking here. You must pay before leaving.")
          return False
