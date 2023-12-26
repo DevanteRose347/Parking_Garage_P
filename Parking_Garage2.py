@@ -46,8 +46,7 @@ def run():
    my_parking_spot = Parking_Metropolis()
    while True:
       print()
-      response = input("\tWhat would you like to do?: Take ticket, Pay, Leave, Exit: ").upper().strip()
-      if response == 'TAKE TICKET':
+      if (response := input("\tWhat would you like to do?: Take ticket, Pay, Leave, Exit: ").upper().strip()) == 'TAKE TICKET':
          my_parking_spot.takeTicket()
       elif response == 'PAY':
          my_parking_spot.payForParking()
